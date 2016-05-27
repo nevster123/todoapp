@@ -10,6 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
+Route::get('/', 'UserController@getDashboard');
+
 Route::get('/signup', [
 					   'uses' => 'UserController@getSignup',
 					   'as' => 'signup']);
@@ -31,6 +34,7 @@ Route::post('/changepassword', 'UserController@postChangePassword');
 Route::post('/updateprofile', 'UserController@postUpdateProfile');
 
 Route::get('/todolists', 'TodoController@getTodoList');
+Route::get('/newtodolist', 'TodoController@getNewTodoList');
 
 Route::post('/todolist', 'TodoController@postTodoList');
 Route::post('/todolists', 'TodoController@postTodoLists');
@@ -40,5 +44,7 @@ Route::post('/updatetodoitem', 'TodoController@postUpdateTodoItem');
 
 Route::get('/settings', ['uses' => 'SettingsController@index',
 						 'as' => 'settings']);
+
+Route::get('/profile', 'UserController@profile');
 
 // 'middleware' => 'auth',

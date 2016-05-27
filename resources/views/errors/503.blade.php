@@ -34,13 +34,14 @@
             .title {
                 font-size: 72px;
                 margin-bottom: 40px;
+                color:#000;
             }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Be right back.</div>
+                <div class="title">Site under maintenance, please try again later</div>
             </div>
         </div>
     </body>

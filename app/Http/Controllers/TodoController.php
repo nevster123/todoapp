@@ -20,6 +20,10 @@ class TodoController extends Controller
 
     }
 
+    public function getNewTodoList() {
+    	
+    }
+
     public function getUpdateTodoItem() {
 
     }
@@ -37,6 +41,6 @@ class TodoController extends Controller
     }
 
     public function postUpdateTodoList() {
-    	
+
     }
 }

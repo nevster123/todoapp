@@ -22,7 +22,7 @@
                 <li><a href="/signup">Sign up</a></li>
                 <li><a href="/signin">Login</a></li>
               @else
-                <li><a href="#">My profile</a></li>
+                <li><a href="/profile">My profile</a></li>
                 <li><a href="/signout">Logout</a></li>
               @endif
             </ul>

@@ -8,14 +8,18 @@ use TodoApp\Http\Requests;
 
 use Auth;
 
+use Hash;
+
+use Validator;
+
 class UserController extends Controller
 {
     public function getSignup() {
     	if(Auth::check()) {
-    		echo "already logged in";
+    		return view('dashboard');
     	}
     	else {
-    		// If not logged in
+    		return view('signup');
     	}
     }
 
@@ -40,9 +44,43 @@ class UserController extends Controller
     	return view('dashboard');
     }
 
-    public function postSignup() {
-
+    public function profile() {
+    	
     }
+
+    public function postSignup(Request $request) {    	
+    	$firstname = $request->input('firstname');
+    	$lastname = $request->input('lastname');
+    	$email = $request->input('email');
+    	$password = $request->input('password');
+    	$conpassword = $request->input('confirmpassword');
+
+    	$v = Validator::make($request->all(),
+    array(
+        'firstname' => 'required',
+        'lastname' => 'required',
+        'password' => 'required|min:8',
+        'confirmpassword' => 'required|min:8|same:password',
+        'email' => 'required|email|unique:users'
+    )
+);
+
+    $fields = array('fields' => array('firstname' => $firstname));
+
+    if ($v->fails())
+    {
+        return redirect()->back()->withErrors($v->errors())->withInput($request->all());
+    }
+    else {
+    		$user = new \TodoApp\User();
+    		$user->firstname = $firstname;
+    		$user->lastname = $lastname;
+    		$user->email = $email;
+    		$user->password = Hash::make($password);
+    		$user->save();
+    		return redirect('dashboard')->with('message', 'User successfully created');
+    }
+   }
 
     public function postChangePassword() {
 
