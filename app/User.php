@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace TodoApp;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -22,5 +22,13 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password', 'remember_token',
-    ];
+        ];
+
+    public function todoitems() {
+        return $this->hasMany('TodoApp\TodoItem');
+    }
+
+    public function userlists() {
+        return $this->hasMany('TodoApp\UserList');
+    }
 }
