@@ -14,8 +14,10 @@ class CreateTodolist extends Migration
     {
          Schema::create('todolist', function (Blueprint $table) {
              $table->increments('id')->unsigned();
+             $table->integer('todolist_id')->unsigned();                                                
              $table->integer('userlist_id')->unsigned();
              $table->foreign('userlist_id')->references('id')->on('userlist')->onUpdate('cascade')->onDelete('cascade');             
+             $table->foreign('todolist_id')->references('id')->on('todolist')->onUpdate('cascade')->onDelete('cascade');
              $table->timestamps();
          });
     }

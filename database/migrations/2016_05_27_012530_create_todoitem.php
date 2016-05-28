@@ -18,8 +18,6 @@ class CreateTodoitem extends Migration
              $table->string('content');
              $table->integer('user_id')->unsigned();
              $table->boolean('completed');
-             $table->integer('todolist_id')->unsigned();            
-             $table->foreign('todolist_id')->references('id')->on('todolist')->onUpdate('cascade')->onDelete('cascade');             
              $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
              $table->timestamps();
          });

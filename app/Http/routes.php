@@ -33,7 +33,7 @@ Route::get('/signout', 'UserController@postLogout');
 Route::post('/changepassword', 'UserController@postChangePassword');
 Route::post('/updateprofile', 'UserController@postUpdateProfile');
 
-Route::get('/todolists', 'TodoController@getTodoList');
+Route::get('/todolists', 'TodoController@getTodoLists');
 Route::get('/newtodolist', 'TodoController@getNewTodoList');
 
 Route::post('/todolist', 'TodoController@postTodoList');

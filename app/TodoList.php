@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class TodoList extends Model
 {
     public function todoitems() {
-    	return $this->HasMany('TodoApp\TodoItem');
+    	return $this->belongsTo('TodoApp\TodoItem');
     }
 
     public function userlists() {
